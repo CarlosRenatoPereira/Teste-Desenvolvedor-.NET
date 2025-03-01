@@ -1,5 +1,7 @@
 # Teste Desenvolvedor .NET
 
+Link Video Youtube: https://www.youtube.com/watch?v=oZmSGYJBnQQ
+
 ![Aiko](imagens/logocrm.png)
 
 Neste teste serão avaliados seus conhecimentos e a metodologia aplicada no desenvolvimento de uma aplicação .NET.

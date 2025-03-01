@@ -1,0 +1,40 @@
+-- Tabela ProcessoSeletivo
+CREATE TABLE ProcessoSeletivo (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Nome NVARCHAR(100) NOT NULL,
+    DataInicio DATETIME NOT NULL,
+    DataTermino DATETIME NOT NULL
+);
+GO
+
+-- Tabela Candidato
+CREATE TABLE Candidato (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Nome NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(100) NOT NULL,
+    Telefone NVARCHAR(20) NOT NULL,
+    Cpf NVARCHAR(11) NOT NULL UNIQUE
+);
+GO
+
+-- Tabela Curso
+CREATE TABLE Curso (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Nome NVARCHAR(100) NOT NULL,
+    Descricao NVARCHAR(255),
+    VagasDisponiveis INT NOT NULL
+);
+GO
+
+-- Tabela Inscricao
+CREATE TABLE Inscricao (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    NumeroInscricao NVARCHAR(50) NOT NULL UNIQUE,
+    Data DATETIME NOT NULL,
+    IdCandidato INT NOT NULL,
+    IdProcessoSeletivo INT NOT NULL,
+    IdCurso INT NOT NULL,
+    FOREIGN KEY (IdCandidato) REFERENCES Candidato(Id),
+    FOREIGN KEY (IdProcessoSeletivo) REFERENCES ProcessoSeletivo(Id),
+    FOREIGN KEY (IdCurso) REFERENCES Curso(Id)
+);
